@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Compra Aprovada</title>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800;900&display=swap">
+<style>
+:root{
+  --purple:#6737d8; --purple2:#8c55ef; --yellow:#ffc83d; --ink:#39266f; --ink2:#6b6394;
+  --bg:#eaf8ff; --font:'Baloo 2',sans-serif; --body-font:'Nunito',sans-serif;
+}
+*{box-sizing:border-box}
+body{margin:0; min-height:100vh; font-family:var(--body-font); color:var(--ink);
+  background:linear-gradient(180deg,#bfe6ff 0%,#eaf8ff 55%,#fff7ee 100%);
+  display:flex; align-items:center; justify-content:center; padding:24px}
+h1,h2{font-family:var(--font); margin:0}
+.card{background:#fff; border-radius:32px; max-width:480px; width:100%; padding:38px 32px; text-align:center;
+  box-shadow:0 20px 45px rgba(60,80,140,.2)}
+.badge{width:80px; height:80px; border-radius:50%; margin:0 auto 16px; background:linear-gradient(150deg,#7ed957,#3d9a2c);
+  display:flex; align-items:center; justify-content:center; font-size:40px; color:#fff}
+h1{font-size:26px; color:var(--purple)}
+.sub{margin-top:8px; font-weight:800; color:var(--ink2); font-size:15px}
+.lion{width:64px; height:64px; margin:24px auto 12px; border-radius:20px; background:linear-gradient(150deg,#ffd451,#ffb82d);
+  display:flex; align-items:center; justify-content:center; font-size:34px; box-shadow:0 4px 0 #e08f0f}
+.codebox{margin-top:22px; background:#f6f2ff; border:2px dashed var(--purple2); border-radius:18px; padding:18px}
+.codebox .lbl{font-size:12.5px; font-weight:800; color:var(--ink2); letter-spacing:.5px}
+.codebox .code{font-family:var(--font); font-size:30px; color:var(--purple); font-weight:800; letter-spacing:1px; margin-top:6px}
+.btn{display:inline-flex; align-items:center; gap:8px; font-family:var(--font); font-weight:800; text-decoration:none;
+  background:linear-gradient(180deg,#ffd451,#ffb82d); color:#5a3a00; padding:16px 30px; border-radius:999px; font-size:17px;
+  box-shadow:0 5px 0 #e08f0f; margin-top:22px}
+.steps{text-align:left; margin-top:26px; display:flex; flex-direction:column; gap:10px}
+.step{display:flex; gap:12px; align-items:flex-start; background:#faf8ff; border-radius:14px; padding:12px 14px}
+.step b{width:24px; height:24px; border-radius:50%; background:var(--purple2); color:#fff; display:flex; align-items:center; justify-content:center; font-size:13px; flex:none}
+.step span{font-size:14px; font-weight:700; color:var(--ink)}
+.note{margin-top:20px; font-size:12.5px; color:var(--ink2); font-weight:700; line-height:1.6}
+.warn{margin-top:14px; background:#fff4d6; border:2px solid var(--yellow); border-radius:16px; padding:14px 16px; text-align:left;
+  display:flex; gap:10px; align-items:flex-start}
+.warn .ic{font-size:20px; flex:none}
+.warn span{font-size:13.5px; font-weight:800; color:#7a5a12; line-height:1.5}
+.installbtn{width:100%; justify-content:center; background:#f6f2ff; color:var(--purple); box-shadow:none; border:2px solid #e3d8fb; margin-top:12px; padding:14px}
+.shortcut-step{display:flex; align-items:flex-start; gap:10px; text-align:left; background:#faf8ff; padding:11px 13px; border-radius:12px; margin-bottom:8px}
+.shortcut-step b{color:var(--purple2); font-size:14px; width:16px; flex:none}
+.shortcut-step span{font-size:13px; color:var(--ink); line-height:1.5; font-weight:700}
+.shortcut-tabs{display:flex; gap:6px; flex-wrap:wrap; margin:14px 0 10px}
+.shortcut-tab{background:#f6f2ff; border:1px solid #e3d8fb; color:var(--ink2); font-family:var(--font); font-weight:700; font-size:12px; padding:6px 12px; border-radius:999px; cursor:pointer}
+.shortcut-tab.sel{background:var(--purple2); color:#fff; border-color:var(--purple2)}
+.divider{display:flex; align-items:center; gap:10px; margin:26px 0 18px; color:var(--ink2); font-weight:800; font-size:12.5px}
+.divider:before,.divider:after{content:""; flex:1; height:1px; background:#e6e0f5}
+.keycard{background:linear-gradient(150deg,#6737d8,#8c55ef); border-radius:20px; padding:20px; color:#fff; text-align:center; box-shadow:0 10px 24px rgba(103,55,216,.3)}
+.kc-top{display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:14px}
+.kc-lion{width:32px; height:32px; border-radius:10px; background:linear-gradient(150deg,#ffd451,#ffb82d); display:flex; align-items:center; justify-content:center; font-size:18px}
+.kc-brand{font-family:var(--font); font-weight:800; font-size:14px}
+.kc-lbl{font-size:11.5px; font-weight:800; letter-spacing:.5px; opacity:.85}
+.kc-code{font-family:var(--font); font-size:26px; font-weight:800; letter-spacing:1px; margin-top:6px}
+.downloadbtn{width:100%; justify-content:center; background:#fff; color:var(--purple); box-shadow:none; border:2px solid #e3d8fb; margin-top:14px; padding:14px}
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="badge">✅</div>
+  <h1>Pagamento aprovado!</h1>
+  <div class="sub">Obrigado por adquirir o Pequenos da Fé Kids 💜</div>
+
+  <div class="lion">🦁</div>
+
+  <a class="btn" href="https://pequenos-da-fe-kids.vercel.app/" target="_blank" rel="noopener">🔗 Acessar o aplicativo</a>
+
+  <div class="codebox">
+    <div class="lbl">SEU CÓDIGO DE ACESSO</div>
+    <div class="code">654321-3</div>
+  </div>
+
+  <div class="warn">
+    <span class="ic">⚠️</span>
+    <span>Salve este código agora! Anote em um lugar seguro, tire um print desta tela ou salve o link nos favoritos — você vai precisar dele sempre que abrir o app pela primeira vez em um novo aparelho.</span>
+  </div>
+
+  <div class="steps">
+    <div class="step"><b>1</b><span>Toque no botão acima para abrir o aplicativo.</span></div>
+    <div class="step"><b>2</b><span>Digite o código de acesso na primeira tela.</span></div>
+    <div class="step"><b>3</b><span>Pronto! Comece a brincar e aprender com seu filho.</span></div>
+  </div>
+
+  <button class="btn installbtn" id="shortcutBtn" type="button">📲 Instalar ou criar atalho no aparelho</button>
+  <div id="shortcutSteps" style="display:none; margin-top:10px; text-align:left"></div>
+
+  <div class="divider">ou, se preferir</div>
+
+  <div class="keycard">
+    <div class="kc-top"><div class="kc-lion">🦁</div><div class="kc-brand">Pequenos da Fé Kids</div></div>
+    <div class="kc-lbl">🔑 CHAVE DE ACESSO</div>
+    <div class="kc-code">654321-3</div>
+  </div>
+  <a class="btn downloadbtn" href="index.html" download="Pequenos-da-Fe-Kids.html">⬇️ Baixar o aplicativo (versão offline)</a>
+  <div class="note">Guarde o arquivo baixado junto com esta chave de acesso — assim você sempre tem uma cópia no seu computador, mesmo sem internet.</div>
+
+  <div class="note">💌 Guarde esta página ou tire um print — você também vai receber esse link e código por e-mail. Qualquer dúvida, é só chamar!</div>
+</div>
+
+<script>
+(function(){
+  var STEPS = {
+    android:
+      '<div class="shortcut-step"><b>1.</b><span>Toque nos <b>três pontinhos</b> (⋮) no canto do navegador.</span></div>'+
+      '<div class="shortcut-step"><b>2.</b><span>Toque em <b>"Instalar aplicativo"</b> ou <b>"Adicionar à tela inicial"</b>.</span></div>'+
+      '<div class="shortcut-step"><b>3.</b><span>Confirme em <b>"Instalar"</b>. O ícone fica salvo na tela.</span></div>',
+    ios:
+      '<div class="shortcut-step"><b>1.</b><span>Toque no botão <b>Compartilhar</b> (□↑) no Safari.</span></div>'+
+      '<div class="shortcut-step"><b>2.</b><span>Escolha <b>"Adicionar à Tela de Início"</b>.</span></div>'+
+      '<div class="shortcut-step"><b>3.</b><span>Toque em <b>"Adicionar"</b>.</span></div>',
+    pc:
+      '<div class="shortcut-step"><b>1.</b><span>Clique no ícone de <b>instalar</b> (⊕) na barra de endereço, ou nos <b>três pontinhos</b> do menu.</span></div>'+
+      '<div class="shortcut-step"><b>2.</b><span>Escolha <b>"Instalar Pequenos da Fé Kids"</b> (Chrome/Edge).</span></div>'+
+      '<div class="shortcut-step"><b>3.</b><span>O atalho aparece na área de trabalho e no menu iniciar.</span></div>'
+  };
+  var curTab = /iPad|iPhone|iPod/.test(navigator.userAgent) ? "ios" : (/Android/.test(navigator.userAgent) ? "android" : "pc");
+  function render(){
+    var el = document.getElementById("shortcutSteps");
+    el.innerHTML =
+      '<div class="shortcut-tabs">'+
+        '<button type="button" class="shortcut-tab'+(curTab==="android"?" sel":"")+'" data-tab="android">Android</button>'+
+        '<button type="button" class="shortcut-tab'+(curTab==="ios"?" sel":"")+'" data-tab="ios">iPhone/iPad</button>'+
+        '<button type="button" class="shortcut-tab'+(curTab==="pc"?" sel":"")+'" data-tab="pc">PC</button>'+
+      '</div>'+STEPS[curTab];
+  }
+  document.getElementById("shortcutBtn").addEventListener("click", function(){
+    var el = document.getElementById("shortcutSteps");
+    var showing = el.style.display !== "none";
+    if(showing){ el.style.display = "none"; return; }
+    render(); el.style.display = "block";
+  });
+  document.getElementById("shortcutSteps").addEventListener("click", function(ev){
+    var t = ev.target.closest(".shortcut-tab");
+    if(!t) return;
+    curTab = t.getAttribute("data-tab");
+    render();
+  });
+})();
+</script>
+</body>
+</html>
