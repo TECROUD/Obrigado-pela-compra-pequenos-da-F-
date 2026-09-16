@@ -24,9 +24,6 @@ h1{font-size:26px; color:var(--purple)}
 .sub{margin-top:8px; font-weight:800; color:var(--ink2); font-size:15px}
 .lion{width:64px; height:64px; margin:24px auto 12px; border-radius:20px; background:linear-gradient(150deg,#ffd451,#ffb82d);
   display:flex; align-items:center; justify-content:center; font-size:34px; box-shadow:0 4px 0 #e08f0f}
-.codebox{margin-top:22px; background:#f6f2ff; border:2px dashed var(--purple2); border-radius:18px; padding:18px}
-.codebox .lbl{font-size:12.5px; font-weight:800; color:var(--ink2); letter-spacing:.5px}
-.codebox .code{font-family:var(--font); font-size:30px; color:var(--purple); font-weight:800; letter-spacing:1px; margin-top:6px}
 .btn{display:inline-flex; align-items:center; gap:8px; font-family:var(--font); font-weight:800; text-decoration:none;
   background:linear-gradient(180deg,#ffd451,#ffb82d); color:#5a3a00; padding:16px 30px; border-radius:999px; font-size:17px;
   box-shadow:0 5px 0 #e08f0f; margin-top:22px}
@@ -46,15 +43,23 @@ h1{font-size:26px; color:var(--purple)}
 .shortcut-tabs{display:flex; gap:6px; flex-wrap:wrap; margin:14px 0 10px}
 .shortcut-tab{background:#f6f2ff; border:1px solid #e3d8fb; color:var(--ink2); font-family:var(--font); font-weight:700; font-size:12px; padding:6px 12px; border-radius:999px; cursor:pointer}
 .shortcut-tab.sel{background:var(--purple2); color:#fff; border-color:var(--purple2)}
-.divider{display:flex; align-items:center; gap:10px; margin:26px 0 18px; color:var(--ink2); font-weight:800; font-size:12.5px}
-.divider:before,.divider:after{content:""; flex:1; height:1px; background:#e6e0f5}
-.keycard{background:linear-gradient(150deg,#6737d8,#8c55ef); border-radius:20px; padding:20px; color:#fff; text-align:center; box-shadow:0 10px 24px rgba(103,55,216,.3)}
+.keycard{margin-top:22px; background:linear-gradient(150deg,#6737d8,#8c55ef); border-radius:20px; padding:20px; color:#fff; text-align:center; box-shadow:0 10px 24px rgba(103,55,216,.3)}
 .kc-top{display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:14px}
 .kc-lion{width:32px; height:32px; border-radius:10px; background:linear-gradient(150deg,#ffd451,#ffb82d); display:flex; align-items:center; justify-content:center; font-size:18px}
 .kc-brand{font-family:var(--font); font-weight:800; font-size:14px}
 .kc-lbl{font-size:11.5px; font-weight:800; letter-spacing:.5px; opacity:.85}
 .kc-code{font-family:var(--font); font-size:26px; font-weight:800; letter-spacing:1px; margin-top:6px}
 .downloadbtn{width:100%; justify-content:center; background:#fff; color:var(--purple); box-shadow:none; border:2px solid #e3d8fb; margin-top:14px; padding:14px}
+.emailbox{margin-top:18px; background:#faf8ff; border:1px solid #e6e0f5; border-radius:16px; padding:16px; text-align:left}
+.eb-lbl{font-size:13px; font-weight:800; color:var(--ink); margin-bottom:10px}
+.eb-row{display:flex; gap:8px}
+.eb-row input{flex:1; min-width:0; border:1.5px solid #e3d8fb; border-radius:10px; padding:11px 12px; font-family:var(--body-font); font-size:14px; outline:none}
+.eb-row input:focus{border-color:var(--purple2)}
+.eb-btn{background:var(--purple2); color:#fff; box-shadow:none; padding:11px 18px; font-size:14px; margin-top:0; flex:none}
+.eb-btn:disabled{opacity:.6}
+.eb-msg{margin-top:8px; font-size:12.5px; font-weight:800}
+.eb-msg.ok{color:#1f8a4c}
+.eb-msg.bad{color:#c73e3e}
 </style>
 </head>
 <body>
@@ -67,9 +72,20 @@ h1{font-size:26px; color:var(--purple)}
 
   <a class="btn" href="https://pequenos-da-fe-kids.vercel.app/" target="_blank" rel="noopener">🔗 Acessar o aplicativo</a>
 
-  <div class="codebox">
-    <div class="lbl">SEU CÓDIGO DE ACESSO</div>
-    <div class="code">654321-3</div>
+  <div class="keycard">
+    <div class="kc-top"><div class="kc-lion">🦁</div><div class="kc-brand">Pequenos da Fé Kids</div></div>
+    <div class="kc-lbl">🔑 CHAVE DE ACESSO</div>
+    <div class="kc-code">654321-3</div>
+    <a class="btn downloadbtn" href="https://pequenos-da-fe-kids.vercel.app/" download="Pequenos-da-Fe-Kids.html">⬇️ Baixar o aplicativo</a>
+  </div>
+
+  <div class="emailbox">
+    <div class="eb-lbl">📧 Quer receber o link e a chave também por e-mail?</div>
+    <div class="eb-row">
+      <input type="email" id="emailInput" placeholder="seu@email.com">
+      <button class="btn eb-btn" id="sendEmailBtn" type="button">Enviar</button>
+    </div>
+    <div class="eb-msg" id="emailMsg"></div>
   </div>
 
   <div class="warn">
@@ -85,16 +101,6 @@ h1{font-size:26px; color:var(--purple)}
 
   <button class="btn installbtn" id="shortcutBtn" type="button">📲 Instalar ou criar atalho no aparelho</button>
   <div id="shortcutSteps" style="display:none; margin-top:10px; text-align:left"></div>
-
-  <div class="divider">ou, se preferir</div>
-
-  <div class="keycard">
-    <div class="kc-top"><div class="kc-lion">🦁</div><div class="kc-brand">Pequenos da Fé Kids</div></div>
-    <div class="kc-lbl">🔑 CHAVE DE ACESSO</div>
-    <div class="kc-code">654321-3</div>
-  </div>
-  <a class="btn downloadbtn" href="index.html" download="Pequenos-da-Fe-Kids.html">⬇️ Baixar o aplicativo (versão offline)</a>
-  <div class="note">Guarde o arquivo baixado junto com esta chave de acesso — assim você sempre tem uma cópia no seu computador, mesmo sem internet.</div>
 
   <div class="note">💌 Guarde esta página ou tire um print — você também vai receber esse link e código por e-mail. Qualquer dúvida, é só chamar!</div>
 </div>
@@ -136,6 +142,39 @@ h1{font-size:26px; color:var(--purple)}
     if(!t) return;
     curTab = t.getAttribute("data-tab");
     render();
+  });
+
+  var sendBtn = document.getElementById("sendEmailBtn");
+  var emailInput = document.getElementById("emailInput");
+  var emailMsg = document.getElementById("emailMsg");
+  sendBtn.addEventListener("click", function(){
+    var email = emailInput.value.trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+      emailMsg.textContent = "Digite um e-mail válido.";
+      emailMsg.className = "eb-msg bad";
+      return;
+    }
+    sendBtn.disabled = true; sendBtn.textContent = "Enviando...";
+    emailMsg.textContent = ""; emailMsg.className = "eb-msg";
+    fetch("/api/send-access-email", {
+      method: "POST",
+      headers: {"Content-Type":"application/json"},
+      body: JSON.stringify({ email: email })
+    }).then(function(r){ return r.json().then(function(d){ return {ok:r.ok, data:d}; }); })
+      .then(function(res){
+        if(res.ok){
+          emailMsg.textContent = "✅ E-mail enviado! Confira sua caixa de entrada (e o spam).";
+          emailMsg.className = "eb-msg ok";
+        } else {
+          emailMsg.textContent = "Não consegui enviar agora. Tente de novo em instantes.";
+          emailMsg.className = "eb-msg bad";
+        }
+      }).catch(function(){
+        emailMsg.textContent = "Não consegui enviar agora. Tente de novo em instantes.";
+        emailMsg.className = "eb-msg bad";
+      }).finally(function(){
+        sendBtn.disabled = false; sendBtn.textContent = "Enviar";
+      });
   });
 })();
 </script>
